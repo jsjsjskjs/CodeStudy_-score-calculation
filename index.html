@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // 입력된 배열에서 문제를 맞춘 경우 1, 틀린 경우 0
+        // 연속으로 문제를 맞춘다면 가산점 1점씩
+        // 어떻게 연속으로 맞춘지 판별할 것 인가
+        // count를 이용해서 1인 경우는 계속 올라가고 0이 등장하면 다시 0값을 주고
+        // count 값을 계속 적으로 최종 점수에 더해주는
+        let score = 0;
+        let count = 0;
+        for (n = 0; n <= arr.length; n++) {
+          if (arr[n] === 0) {
+            count = 0;
+          } else if (arr[n] === 1) {
+            count++;
+            score += count;
+          }
+        }
+        return score;
+      }
+
+      let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
